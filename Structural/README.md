@@ -1,1 +1,1 @@
-Structure pattern README file
+# Structure pattern README file
