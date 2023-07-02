@@ -1,0 +1,1 @@
+# Structure pattern README file
