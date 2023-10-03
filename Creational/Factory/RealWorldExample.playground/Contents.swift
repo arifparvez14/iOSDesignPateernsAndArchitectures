@@ -71,6 +71,7 @@ private class ClientCode {
     private var currentProjector: Projector?
 
     func present(info: String, with factory: ProjectorFactory) {
+        print("Present")
         guard let projector = currentProjector else {
             let projector = factory.createProjector()
             projector.present(info: info)
