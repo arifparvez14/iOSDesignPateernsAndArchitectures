@@ -7,13 +7,26 @@
 
 import Foundation
 
-struct SelectCityViewModel {
+class SelectCityViewModel: SelectCityViewModeling {
+    
+    weak var coordination: SelectCityModelCoordinationDelegate?
+    weak var dataDelegate: SelectCityModelDataDelegate?
+    
     var source = [String]()
     
-    init() {
-        for city in cities {
-            source.append(city.name)
+    func loadCityListData() {
+        for city in self.cities {
+            self.source.append(city.name)
         }
+        self.dataDelegate?.itemDidChange()
+    }
+    
+    var numOfItems: Int {
+        source.count
+    }
+    
+    func isMovingToRoot() {
+        coordination?.dismissList()
     }
     
     fileprivate var cities: [City] {

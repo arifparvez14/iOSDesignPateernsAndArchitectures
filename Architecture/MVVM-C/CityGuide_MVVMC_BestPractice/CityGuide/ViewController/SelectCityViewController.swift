@@ -10,14 +10,21 @@ import UIKit
 class SelectCityViewController: UIViewController, Storyboarded {
     
     @IBOutlet weak var cityTableView: UITableView!
-    
-    var viewModel: SelectCityViewModel?
+    var viewModel: SelectCityViewModeling?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         cityTableView.delegate = self
         cityTableView.dataSource = self
-        cityTableView.reloadData()
+        viewModel?.dataDelegate = self
+        viewModel?.loadCityListData()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if isMovingFromParent || isBeingDismissed {
+            viewModel?.isMovingToRoot()
+        }
     }
 }
 
@@ -48,4 +55,10 @@ extension SelectCityViewController: UITableViewDelegate, UITableViewDataSource {
 //    {
 //        viewModel?.selectRow(row: indexPath.row)
 //    }
+}
+
+extension SelectCityViewController: SelectCityModelDataDelegate {
+    func itemDidChange() {
+        cityTableView.reloadData()
+    }
 }

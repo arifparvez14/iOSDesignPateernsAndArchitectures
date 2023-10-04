@@ -9,13 +9,13 @@ import Foundation
 
 class HomeViewModel: HomeViewModeling {
     
-    weak var delegate: HomeViewModelCoordinationDelegate?
+    weak var coordinationdelegate: HomeViewModelCoordinationDelegate?
     
     func didPickCity() {
-        delegate?.pickCity()
+        coordinationdelegate?.pickCity()
     }
     
     func didPickRandomCity() {
-        delegate?.PickRandomCity()
+        coordinationdelegate?.PickRandomCity()
     }
 }

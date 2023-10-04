@@ -13,7 +13,7 @@ protocol HomeViewModelCoordinationDelegate: AnyObject {
 }
 
 protocol HomeViewModeling {
-    var delegate: HomeViewModelCoordinationDelegate? {get set}
+    var coordinationdelegate: HomeViewModelCoordinationDelegate? {get set}
     func didPickCity()
     func didPickRandomCity()
 }

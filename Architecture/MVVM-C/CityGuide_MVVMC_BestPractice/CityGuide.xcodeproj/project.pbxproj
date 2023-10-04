@@ -25,6 +25,7 @@
 		8531E2AA2ACADD0D007C9955 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8531E2A92ACADD0D007C9955 /* HomeViewModel.swift */; };
 		8531E2AC2ACADD1E007C9955 /* RandomCityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8531E2AB2ACADD1E007C9955 /* RandomCityViewModel.swift */; };
 		854B55E62ACD48490095C498 /* HomeViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854B55E52ACD48490095C498 /* HomeViewModelProtocol.swift */; };
+		854B55E82ACD53BE0095C498 /* SelectCityModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854B55E72ACD53BE0095C498 /* SelectCityModelProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		8531E2A92ACADD0D007C9955 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		8531E2AB2ACADD1E007C9955 /* RandomCityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomCityViewModel.swift; sourceTree = "<group>"; };
 		854B55E52ACD48490095C498 /* HomeViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelProtocol.swift; sourceTree = "<group>"; };
+		854B55E72ACD53BE0095C498 /* SelectCityModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCityModelProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				854B55E52ACD48490095C498 /* HomeViewModelProtocol.swift */,
+				854B55E72ACD53BE0095C498 /* SelectCityModelProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -226,6 +229,7 @@
 				8531E2A22ACAC471007C9955 /* RandomCityCoordinator.swift in Sources */,
 				8531E2952ACAC0AA007C9955 /* Coordinator.swift in Sources */,
 				8531E2832ACABEF3007C9955 /* ViewController.swift in Sources */,
+				854B55E82ACD53BE0095C498 /* SelectCityModelProtocol.swift in Sources */,
 				8531E29E2ACAC19B007C9955 /* RandomCityViewController.swift in Sources */,
 				8531E27F2ACABEF3007C9955 /* AppDelegate.swift in Sources */,
 				8531E2A82ACAD52D007C9955 /* SelectCityViewModel.swift in Sources */,

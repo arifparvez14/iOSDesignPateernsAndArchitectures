@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SelectCityCoordinator: Coordinator {
+class SelectCityCoordinator: NSObject, Coordinator, UINavigationControllerDelegate{
     
     var childCoordinator: [Coordinator] = [Coordinator]()
     var navigationController: UINavigationController
@@ -18,12 +18,20 @@ class SelectCityCoordinator: Coordinator {
     }
     
     func start() {
+        navigationController.delegate = self
         let vc = SelectCityViewController.instantiate()
-        //vc.coordinator = self
         
         let viewModel = SelectCityViewModel()
         vc.viewModel = viewModel
+        viewModel.coordination = self
         
         navigationController.pushViewController(vc, animated: true)
     }
 }
+
+extension SelectCityCoordinator: SelectCityModelCoordinationDelegate {
+    func dismissList() {
+        print("Dismiss")
+    }
+}
+

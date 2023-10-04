@@ -23,7 +23,7 @@ class MainCoordinator: NSObject, Coordinator, UINavigationControllerDelegate{
         
         let viewModel =  HomeViewModel()
         vc.viewModel = viewModel
-        viewModel.delegate = self
+        viewModel.coordinationdelegate = self
         
         navigationController.pushViewController(vc, animated: true)
     }
