@@ -9,7 +9,11 @@ import UIKit
 
 class MainCoordinator: NSObject, Coordinator, UINavigationControllerDelegate{
     
-    var childCoordinator: [Coordinator] = [Coordinator]()
+    fileprivate let Home_KEY: String  = "Home"
+    fileprivate let CITY_LIST_KEY: String  = "CityList"
+    fileprivate let RANDOM_CITY_LIST_KEY: String  = "RandomCityList"
+    
+    var coordinators = [String:Coordinator]()
     
     var navigationController: UINavigationController
     
@@ -19,8 +23,9 @@ class MainCoordinator: NSObject, Coordinator, UINavigationControllerDelegate{
     
     func start() {
         navigationController.delegate = self
-        let vc = ViewController.instantiate()
+        coordinators[Home_KEY] = self
         
+        let vc = ViewController.instantiate()
         let viewModel =  HomeViewModel()
         vc.viewModel = viewModel
         viewModel.coordinationdelegate = self
@@ -30,17 +35,17 @@ class MainCoordinator: NSObject, Coordinator, UINavigationControllerDelegate{
     
     func selectCity() {
         let child = SelectCityCoordinator(navigationController: self.navigationController)
-        child.parentCoordinator = self
+        coordinators[CITY_LIST_KEY] = child
         
-        childCoordinator.append(child)
+        child.delegate = self
         child.start()
     }
     
     func randomCity() {
         let child = RandomCityCoordinator(navigationController: self.navigationController)
-        child.parentCoordinator = self
+        coordinators[RANDOM_CITY_LIST_KEY] = child
         
-        childCoordinator.append(child)
+        
         child.start()
     }
     
@@ -53,5 +58,11 @@ extension MainCoordinator: HomeViewModelCoordinationDelegate {
 
     func PickRandomCity() {
         randomCity()
+    }
+}
+
+extension MainCoordinator: SelectCityCoordinatorDelegate {
+    func listCoordinatorDidFinish() {
+        coordinators[CITY_LIST_KEY] = nil
     }
 }

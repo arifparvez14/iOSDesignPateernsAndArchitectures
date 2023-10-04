@@ -7,11 +7,14 @@
 
 import UIKit
 
+protocol SelectCityCoordinatorDelegate: AnyObject {
+    func listCoordinatorDidFinish()
+}
+
 class SelectCityCoordinator: NSObject, Coordinator, UINavigationControllerDelegate{
     
-    var childCoordinator: [Coordinator] = [Coordinator]()
     var navigationController: UINavigationController
-    weak var parentCoordinator: MainCoordinator?
+    weak var delegate: SelectCityCoordinatorDelegate?
     
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
@@ -31,7 +34,7 @@ class SelectCityCoordinator: NSObject, Coordinator, UINavigationControllerDelega
 
 extension SelectCityCoordinator: SelectCityModelCoordinationDelegate {
     func dismissList() {
-        print("Dismiss")
+        delegate?.listCoordinatorDidFinish()
     }
 }
 

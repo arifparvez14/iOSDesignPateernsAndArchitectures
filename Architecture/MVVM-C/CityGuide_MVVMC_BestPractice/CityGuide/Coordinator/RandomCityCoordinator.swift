@@ -9,9 +9,7 @@ import UIKit
 
 class RandomCityCoordinator: Coordinator {
     
-    var childCoordinator: [Coordinator] = [Coordinator]()
     var navigationController: UINavigationController
-    weak var parentCoordinator: MainCoordinator?
     
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
